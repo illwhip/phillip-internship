@@ -54,21 +54,35 @@ export default function SimpleSlider () {
   }
   
   const [hotData, setHotData] = useState([])
-
+  const [shit, setShit] = useState(false)
+  
   async function hotCollectionsData() {
     const { data } = await axios.get('https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections')
     setHotData(data)
+    setShit(true)
   }
 
   useEffect(() => {
     hotCollectionsData()
   }, [])
 
-  
   return (
     <div className='slider--container'>
       <Slider {...settings}>
-        {hotData.map((data, index) => (
+        {shit 
+        ?
+        <>
+        {new Array(6).fill(0).map((_, index) => (
+          <div className='nft_coll skel__card' id={index}>
+            <div className="nft_wrap skel__img"></div>
+            <div className="skel_author"></div>
+            <div className="nft_coll_info skel__title"></div>
+            <div className="skel__code"></div>
+          </div>
+        ))}       
+        </>   
+        :
+        hotData.map((data, index) => (
               <div className="card" key={index}>
                 <div className="nft_coll">
                   <div className="nft_wrap">

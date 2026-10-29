@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SimpleSlider from '../../components/UI/SimpleSlider'
 
 const HotCollections = () => {
@@ -16,6 +16,7 @@ const HotCollections = () => {
           <SimpleSlider />
         </div>
       </div>
+      
     </section>
   );
 };
