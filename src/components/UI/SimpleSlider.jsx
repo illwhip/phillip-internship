@@ -54,12 +54,10 @@ export default function SimpleSlider () {
   }
   
   const [hotData, setHotData] = useState([])
-  const [shit, setShit] = useState(false)
   
   async function hotCollectionsData() {
     const { data } = await axios.get('https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections')
     setHotData(data)
-    setShit(true)
   }
 
   useEffect(() => {
@@ -69,7 +67,7 @@ export default function SimpleSlider () {
   return (
     <div className='slider--container'>
       <Slider {...settings}>
-        {shit 
+        {hotData
         ?
         <>
         {new Array(6).fill(0).map((_, index) => (
