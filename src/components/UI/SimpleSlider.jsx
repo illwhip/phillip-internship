@@ -27,8 +27,6 @@ function SamplePrevArrow(props) {
   );
 }
 
-
-
 export default function SimpleSlider () {
   var settings = {
     className: 'slider variable-width',
@@ -37,19 +35,18 @@ export default function SimpleSlider () {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    variableWidth: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 990,
-        setting: {
+        settings: {
           slidesToShow: 2
         }
       },
       {
         breakpoint: 576,
-        setting: {
+        settings: {
           slidesToShow: 1
         }
       }
@@ -69,10 +66,10 @@ export default function SimpleSlider () {
 
   
   return (
-    <div class='slider-container'>
+    <div className='slider--container'>
       <Slider {...settings}>
         {hotData.map((data, index) => (
-              <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+              <div className="card" key={index}>
                 <div className="nft_coll">
                   <div className="nft_wrap">
                     <Link to="/item-details">
