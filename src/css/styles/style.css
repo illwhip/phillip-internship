@@ -12223,6 +12223,10 @@ a.read_more i {
   overflow: none;
 }
 
+.card__holder {
+  padding-left: 20px;
+}
+
 .card {
   border: none;
   padding-left: 16px;
@@ -12230,6 +12234,7 @@ a.read_more i {
 }
 
 .skel__card {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -12241,17 +12246,21 @@ a.read_more i {
 
 .skel__img {
   width: 100%;
-  height: 50%;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   background: grey;
   margin-bottom: 4px;
 }
 
 .skel__author {
-  width: 15px !important;
-  height: 15px !important;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  bottom: 50px;
   border-radius: 50%;
   border: 4px solid white;
-  background: red !important;
+  background: grey;
   z-index: 3;
 }
 
@@ -12259,6 +12268,7 @@ a.read_more i {
   width: 100px;
   height: 10px;
   padding: 6px;
+  margin-top: 16px;
   background: grey;
 }
 
