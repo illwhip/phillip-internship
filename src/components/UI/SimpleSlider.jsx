@@ -28,30 +28,29 @@ function SamplePrevArrow(props) {
 }
 
 export default function SimpleSlider () {
-  var settings = {
-    className: 'slider variable-width',
+  const [windowWidth, setWindowWidth] = useState(() => window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const slidesToShow = windowWidth <= 576 ? 1 : windowWidth <= 990 ? 2 : 4;
+
+  const settings = {
+    className: "slider",
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    responsive: [
-      {
-        breakpoint: 990,
-        settings: {
-          slidesToShow: 2
-        }
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1
-        }
-      }
-    ]
-  }
+  };
   
   const [hotData, setHotData] = useState([])
   const [loading, setLoading] = useState(true)
