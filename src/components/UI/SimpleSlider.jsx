@@ -68,7 +68,7 @@ export default function SimpleSlider () {
 
   return (
     <div className='slider--container'>
-      <Slider {...settings}>
+      <Slider key={loading ? 'loading' : 'loaded'} {...settings}>
         {loading
         ?        
         new Array(6).fill(0).map((_, index) => (
