@@ -65,8 +65,10 @@ export default function SimpleSlider () {
     hotCollectionsData()
   }, [])
 
+  let counter = 0
+
   return (
-    <div className='slider--container'>
+    <div key={counter++} className='slider--container'>
       <Slider key={loading ? 'loading' : 'loaded'} {...settings}>
         {loading
         ?        
