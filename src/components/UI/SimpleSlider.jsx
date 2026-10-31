@@ -73,7 +73,7 @@ export default function SimpleSlider () {
         {loading
         ?        
         new Array(6).fill(0).map((_, index) => (
-          <div className="card__holder">
+          <div key={index} className="card__holder">
             <div className='nft_coll skel__card' id={index}>
               <div className="skel__img"></div>
               <div className="skel__author"></div>
