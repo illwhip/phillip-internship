@@ -1,3 +1,5 @@
+import React from "react"
+
 const expiringIn = document.querySelector('.de_countdown')
 
 let time
@@ -6,10 +8,10 @@ let cancelId
 
 function ExpirationDate(itemsData) {
   time = Date.now()
-  timeLeft = itemsData.expiryDate - time
-
+  timeLeft = itemsData[0].expiryDate - time
+  console.log(time)
+  console.log(timeLeft)
   if (timeLeft <= 0) {
-    expiringIn.style.display= 'none'
     return cancelAnimationFrame(cancelId) 
   }
 
@@ -17,13 +19,13 @@ function ExpirationDate(itemsData) {
 }
 
 function updateTime() {  
-  let seconds = Math.floor(timeLeft / 1000)
-  let minutes = Math.floor(seconds/60)
-  let hours = Math.floor(minutes / 60)
+  let seconds = timeLeft / 1000
+  let minutes = seconds / 60
+  let hours = minutes / 60
 
-  let secondsText = seconds + 's'
-  let minutesText = minutes + 'm'
-  let hoursText = hours + 'h'
+  let secondsText = Math.floor(seconds % 60) + 's'
+  let minutesText = Math.floor(minutes % 60) + 'm'
+  let hoursText = Math.floor(hours) + 'h'
 
   if (hours <= 0) {
     hoursText = '0h'
@@ -31,11 +33,15 @@ function updateTime() {
   if (minutes <= 0) {
     minutesText = '0m'
   }
-
-  expiringIn.innerHTML = hoursText  + minutesText + secondsText
+  if (timeLeft <= 0) {
+    expiringIn.innerHTML = '0h 0m 0s'
+    expiringIn.style.display= 'none'
+  }
+  
+  console.log(hoursText + minutesText + secondsText)
+  expiringIn.innerHTML = hoursText + minutesText + secondsText
 
   cancelId = requestAnimationFrame(updateTime)
 }
-
 
 export default ExpirationDate

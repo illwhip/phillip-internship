@@ -24,7 +24,7 @@ const ItemCards = () => {
     :
     itemsData.map((data, index) => (
       <div className="card" key={index}>
-        <div className="nft__item">
+        <div className="nft__item item__card">
           <div className="author_list_pp">
             <Link
               to="/author"
@@ -36,7 +36,7 @@ const ItemCards = () => {
               <i className="fa fa-check"></i>
             </Link>
           </div>
-          <div className="de_countdown">{ExpirationDate(itemsData.expiryDate)}</div>
+          <div className="de_countdown">{ExpirationDate(itemsData)}</div>
 
           <div className="nft__item_wrap">
             <div className="nft__item_extra">
