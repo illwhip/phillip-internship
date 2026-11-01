@@ -12227,10 +12227,15 @@ a.read_more i {
   padding-left: 20px;
 }
 
+.item__card {
+  width: 100%;
+}
+
 .card {
   border: none;
   padding-left: 16px;
   gap: 16px;
+  width: 100%;
 }
 
 .skel__card {
