@@ -4,6 +4,10 @@ import ItemCards from "../UI/ItemCards"
 import axios from 'axios'
 import Skeleton from "../UI/Skeleton"
 import { Link } from "react-router-dom"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
 
 const NewItems = () => {
   

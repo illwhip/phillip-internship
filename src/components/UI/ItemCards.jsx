@@ -13,7 +13,7 @@ const ItemCards = (key, loading) => {
             to={`/author/${key.item.authorId}`}
             data-bs-toggle="tooltip"
             data-bs-placement="top"
-            title="Creator: ${key.item.authorName}"
+            title={`Creator: ${key.item.authorName}`}
           >
             <img className="lazy" src={key.item.authorImage} alt="" />
             <i className="fa fa-check"></i>
