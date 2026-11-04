@@ -49,6 +49,8 @@ const ExploreItems = () => {
     }
   }
 
+  console.log(exploreItems)
+
   function renderExploreItems() {
     return (
       loading ?
